@@ -2,12 +2,11 @@ version: "3.6"
 
 services:
   fd-api-orders:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: .
     volumes:
-      - ./:/app
+    - "/etc/timezone:/etc/timezone:ro"
+    - "/etc/localtime:/etc/localtime:ro"
     container_name: fd-api-orders
     restart: on-failure
     ports:
-      - 3300:3300
+      - "3000:3000"
